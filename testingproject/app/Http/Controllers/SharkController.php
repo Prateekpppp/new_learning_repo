@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shark;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SharkController extends Controller
 {
@@ -73,7 +74,49 @@ class SharkController extends Controller
         return redirect('user');
     }
 
-    public function testfunc() {
-        echo 'tesdfghjkhgfdsaZxcvghytrewa';
+    public function fetchjson() {
+        // $json = Storage::disk('public')->get('sample.json');
+
+        // // $json = storage_path('app/public/sample.json');
+        // // $json = file_get_contents($json);
+
+        // $json = json_decode($json);
+        // asort($json);
+        // echo '<pre>';
+        // print_r($json);
+        // dd('345678uhgf');
+        // dd($json);
+
+        $test_array = array(3, 0, 2, 5, -1, 4, 1);
+        dd($this->bubble_Sort($test_array));
+    }
+
+    function bubble_Sort($my_array)
+    {
+        // do
+        // {
+        //     $swapped = false;
+        //     for( $i = 0, $c = count( $my_array ) - 1; $i < $c; $i++ )
+        //     {
+        //         if( $my_array[$i] > $my_array[$i + 1] )
+        //         {
+        //             list( $my_array[$i + 1], $my_array[$i] ) =
+        //                     array( $my_array[$i], $my_array[$i + 1] );
+        //             $swapped = true;
+        //         }
+        //     }
+        // }
+        // while( $swapped );
+
+        for($i=0;$i<count($my_array)-1;$i++){
+            for($j=$i+1;$j<count($my_array)-1;$j++){
+                if($my_array[$j]<$my_array[$i]){
+                    $temp = $my_array[$i];
+                    $my_array[$i] = $my_array[$j];
+                    $my_array[$j] = $temp;
+                }
+            }
+        }
+        return $my_array;
     }
 }
