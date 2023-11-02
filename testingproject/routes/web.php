@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('user', 'SharkController');
-Route::get('fetchjson', 'SharkController@fetchjson');
+Route::get('fetchjson', 'SharkController@fetchjson_n_reorder');
 
 Route::get('/flash-message', 'FlashMessageController@showMessage');
 

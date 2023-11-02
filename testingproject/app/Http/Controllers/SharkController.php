@@ -74,21 +74,49 @@ class SharkController extends Controller
         return redirect('user');
     }
 
-    public function fetchjson() {
-        // $json = Storage::disk('public')->get('sample.json');
+    public function fetchjson_n_reorder() {
+        $json = Storage::disk('public')->get('sample.json');
 
-        // // $json = storage_path('app/public/sample.json');
-        // // $json = file_get_contents($json);
+        // $json = storage_path('app/public/sample.json');
+        // $json = file_get_contents($json);
 
-        // $json = json_decode($json);
-        // asort($json);
-        // echo '<pre>';
-        // print_r($json);
-        // dd('345678uhgf');
+        // $json = json_encode(json_decode($json));
         // dd($json);
 
-        $test_array = array(3, 0, 2, 5, -1, 4, 1);
-        dd($this->bubble_Sort($test_array));
+        // $json = json_decode($json);
+
+        $json = json_decode($json,TRUE);
+        dump($json);
+
+        $json = $this->reorderassociativearray($json,'logins_count');
+        dd($json);
+
+        // $test_array = array(3, 0, 2, 5, -1, 4, 1);
+
+        // dd($this->insertionsorting($ordering_array));
+
+        return $json;
+
+    }
+
+    function singlekeyvalue(array $arr,$k) : string {
+        $rarr = '';
+        foreach ($arr as $key => $value) {
+            if ($key == $k) {
+                $rarr = $value;
+            }
+        }
+        return $rarr;
+    }
+
+    function object_to_array($data)
+    {
+        $result = [];
+        foreach ($data as $key => $value)
+        {
+            $result[$key] = (is_array($value) || is_object($value)) ? object_to_array($value) : $value;
+        }
+        return $result;
     }
 
     function bubble_Sort($my_array)
@@ -107,9 +135,9 @@ class SharkController extends Controller
         //     }
         // }
         // while( $swapped );
-
-        for($i=0;$i<count($my_array)-1;$i++){
-            for($j=$i+1;$j<count($my_array)-1;$j++){
+        for($i=0;$i<count($my_array);$i++){
+            for($j=$i+1;$j<count($my_array);$j++){
+                echo $my_array[$i].'<br>';
                 if($my_array[$j]<$my_array[$i]){
                     $temp = $my_array[$i];
                     $my_array[$i] = $my_array[$j];
@@ -119,4 +147,37 @@ class SharkController extends Controller
         }
         return $my_array;
     }
+
+    function insertionsorting($arr) : array {
+
+        for($i=1; $i < count($arr); $i++){
+            $key = $arr[$i];
+            for($j=$i-1;$j>=0;$j--){
+                if($arr[$j]>$key){
+                    $arr[$j+1] = $arr[$j];
+                } else {
+                    break;
+                }
+            }
+            $arr[$j+1] = $key;
+        }
+        return $arr;
+    }
+
+    function reorderassociativearray(array $arr, $k) : array {
+
+        for($i=1; $i < count($arr); $i++){
+            $key = $arr[$i];
+            for($j=$i-1;$j>=0;$j--){
+                if($arr[$j][$k]>$key[$k]){
+                    $arr[$j+1] = $arr[$j];
+                } else {
+                    break;
+                }
+            }
+            $arr[$j+1] = $key;
+        }
+        return $arr;
+    }
+
 }
