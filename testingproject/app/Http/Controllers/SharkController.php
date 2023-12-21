@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Shark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Shark;
+use App\Models\SbFixture;
+use Response;
 
 class SharkController extends Controller
 {
@@ -83,13 +85,15 @@ class SharkController extends Controller
         // $json = json_encode(json_decode($json));
         // dd($json);
 
-        // $json = json_decode($json);
+        $json = json_decode($json);
 
-        $json = json_decode($json,TRUE);
+        // $json = json_decode($json,TRUE);
         dump($json);
 
-        $json = $this->reorderassociativearray($json,'logins_count');
+        $json = $this->reorderobjects($json,'logins_count');
+
         dd($json);
+        $json = $this->reorderassociativearray($json,'logins_count');
 
         // $test_array = array(3, 0, 2, 5, -1, 4, 1);
 
@@ -180,4 +184,169 @@ class SharkController extends Controller
         return $arr;
     }
 
+    function reorderobjects(array $arr, $k) {
+
+        for($i=1; $i < count($arr); $i++){
+            $key = $arr[$i];
+            for($j=$i-1;$j>=0;$j--){
+                if($arr[$j]->$k>$key->$k){
+                    $arr[$j+1] = $arr[$j];
+                } else {
+                    break;
+                }
+            }
+            $arr[$j+1] = $key;
+        }
+        return $arr;
+    }
+
+    function sendFast2quicksms($message, $mobile_no) {
+        $client = new \GuzzleHttp\Client();
+
+        $api = '763x9JiEzBDZIkfnFOhC0ArlWt2cS4LMvsqguNayQU5TbpKjmwdwOIi3NCuhAS4nxE50et2zFYjoUbMZ';
+
+        $res = $client->get("https://www.fast2sms.com/dev/bulkV2?authorization=$api&route=q&message=$message&flash=0&numbers=$mobile_no");
+
+        $response = json_decode($res->getBody());
+
+        return $response->return;
+    }
+
+    function sendFast2otp($otp, $mobile_no, $api) {
+        $client = new \GuzzleHttp\Client();
+
+        $res = $client->get("https://www.fast2sms.com/dev/bulkV2?authorization=$api&route=otp&variables_values=$otp&flash=0&numbers=$mobile_no");
+        // echo $res->getStatusCode(); // 200
+        echo $res->getBody();
+    }
+
+    function callsmsApi($smstype) {
+
+        $otp = '57575757';
+        $mobile_no = '6362964392';
+        $msg = '78787878 is your MUX otp';
+        $api = '763x9JiEzBDZIkfnFOhC0ArlWt2cS4LMvsqguNayQU5TbpKjmwdwOIi3NCuhAS4nxE50et2zFYjoUbMZ';
+
+        if($smstype == 'otp'){
+
+            $this->sendFast2otp($otp, $mobile_no,$api);
+        } else {
+
+            $this->sendFast2quicksms($msg,$mobile_no);
+        }
+
+    }
+
+    function callsmspostApi(Request $request) {
+
+        $client = new \GuzzleHttp\Client();
+
+        $api = '763x9JiEzBDZIkfnFOhC0ArlWt2cS4LMvsqguNayQU5TbpKjmwdwOIi3NCuhAS4nxE50et2zFYjoUbMZ';
+
+        $url = "https://www.fast2sms.com/dev/bulkV2";
+
+        $res = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json','authorization' => $api],
+            'body' => json_encode([
+                'message' => $request->message,
+                'language'=> 'english',
+                'route' => 'q',
+                'numbers' =>"$request->mobile_no",
+
+            ])
+        ]);
+        $response = json_decode($res->getBody());
+
+        return $response->return;
+    }
+
+    public function getTableColumns($model_name)
+    {
+        // dd($model_name);
+        $table = new $model_name;
+
+        $table = $table->getTable();
+        // $columns = $model->getConnection()->getSchemaBuilder()->getColumnListing($tableName);
+        return \DB::getSchemaBuilder()->getColumnListing($table);
+
+        // OR
+
+        $model = $model->first();
+        $columns = array_keys(json_decode($model, true));
+        return $columns;
+        // return \Schema::getColumnListing($table);
+
+    }
+
+    function crudonTable($model_name, $request) {
+
+        if(gettype($request) == 'array') $request = json_decode(json_encode($request));
+
+        $columns = $this->getTableColumns($model_name);
+
+        $table = new $model_name;
+
+        foreach($columns as $k=>$v){
+            if ($k>0 and $k<count($columns)-2) {
+                $table->$v = $request->$v;
+            }
+        }
+        $table->save();
+
+    }
+
+    function downloadtablecsv (){
+
+        $file = 'testdata.csv';
+
+        $model = "SbFixture";
+
+        $table = 'sb_fixtures';
+
+        // $model = new \ReflectionClass($model);
+        // $model = $model->getName();
+        // dd(app()->getNamespace().'Models\\'.$model);
+        // dump($model);
+        // dump(app()->getNamespace().'Models\\'.$model.'.php');
+        // dump(str_replace("\\", "/", app()->getNamespace().'Models\\').$model.'.php');
+        // dump('app/Models/'.$model.'.php');
+        // dd('trfdxg',file_exists('app/Models/'.$model.'.php'));
+
+        $columns = $this->getTableColumns(app()->getNamespace().'Models\\'.$model);
+
+        // $columns = $this->getTableColumns($model::class);
+
+        $write = fopen($file, 'w+');
+
+
+        // $data = \DB::table('sigma.sb_fixtures')->select('sb_fixtures.*')->where('id','!=','0')->orderBy('id','DESC');
+
+        $data = \DB::table($table)->select("$table.*")->where('id','!=','0')->orderBy('id','DESC');
+
+        $data->chunk(5000,function($data) use (&$file, &$write, &$columns){
+
+            foreach ($data as $k => $v) {
+                $arr = [];
+                $i = 0;
+                while($i<count($columns)){
+                    if ($v->{$columns[$i]}) {
+                        $arr[] = $v->{$columns[$i]};
+                    } else {
+                        $arr[] = 'NULL';
+                    }
+                    $i++;
+                }
+                fputcsv($write, $arr);
+            }
+
+        });
+
+        fclose($write);
+        $storageAt = public_path();
+        $headers = array(
+            'Content-Type' => 'text/csv',
+        );
+
+        return Response::download(public_path($file),$file,$headers);
+    }
 }

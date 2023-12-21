@@ -14,7 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('user', 'SharkController');
-Route::get('fetchjson', 'SharkController@fetchjson_n_reorder');
+
+Route::get('fetchjson_n_reorder', 'SharkController@fetchjson_n_reorder');
+
+Route::get('downloadtablecsv', 'SharkController@downloadtablecsv');
+
+Route::get('callsmsApi',function(){
+    return view('formsubmission');
+});
+
+Route::get('geochart',function(){
+    return view('test_pages.geochart');
+});
+
+Route::get('callsmsApi/{smstype}', 'SharkController@callsmsgetApi');
+
+Route::post('callsmspostApi', 'SharkController@callsmspostApi')->name('callsmspostApi');
 
 Route::get('/flash-message', 'FlashMessageController@showMessage');
 
