@@ -10,7 +10,7 @@ def bubble_sort(arr):
     for j in range(0,len(arr)):
         for i in range(0,len(arr)-j-1):
 
-            if(arr[i]>arr[i+1]):
+            if(arr[i]>=arr[i+1]):
                 temp = arr[i]
                 arr[i] = arr[i+1]
                 arr[i+1] = temp
@@ -26,7 +26,7 @@ def insertion_sort(arr):
         while(i > 0):
             i-=1 
             # print(i,'\n')
-            if(arr[i]>temp):
+            if(arr[i]>=temp):
                 arr[i+1] = arr[i]
                 arr[i] = temp
             else:
