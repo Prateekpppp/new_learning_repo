@@ -118,7 +118,7 @@ class DynamicFormController extends Controller
     // https://cosme.dev/post/laravel-orwhere-how-to-use-and-group-queries
     function group_where_condition() {
 
-        // where condition is required here
+        // group where condition is required here
 
         $q->where(function($q){
             $q->where(function($condition){

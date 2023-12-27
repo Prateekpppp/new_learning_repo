@@ -6,14 +6,25 @@
 
 
 def bubble_sort(arr):
-    temp = ''
-    for j in range(0,len(arr)):
-        for i in range(0,len(arr)-j-1):
+    
+    mv = 0
+    j = 0
+    while(j<len(arr)-mv-1):
+        if(arr[j]>= arr[j+1]):
+            arr[j+1],arr[j] = arr[j],arr[j+1]
+        j+=1
+        if(mv != len(arr)-1 and j == len(arr)-mv-1):
+            mv += 1
+            j = 0
+        if(mv == len(arr)-1):
+            break
 
-            if(arr[i]>=arr[i+1]):
-                temp = arr[i]
-                arr[i] = arr[i+1]
-                arr[i+1] = temp
+        # for i in range(0,len(arr)-j-1):
+
+        #     if(arr[i]>=arr[i+1]):
+        #         temp = arr[i]
+        #         arr[i] = arr[i+1]
+        #         arr[i+1] = temp
     
     return arr
 
@@ -54,6 +65,19 @@ def selection_sort(arr):
 
 
 # def merge_sort(arr):
+
+def swaping(a,b):
+    # temp = 0
+    # temp = a
+    # a = b
+    # b = temp
     
+    a = a + b
+    b = a - b
+    a = a - b
+    return a,b   
     
-print(selection_sort([0, 45, 1,-1,-2, -9,10,11]))
+
+arr = [0,2]
+arr = [1,0,1,3,4,4,2,7,2]
+print(bubble_sort(arr))
