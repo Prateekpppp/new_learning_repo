@@ -33,6 +33,7 @@ Route::post('callsmspostApi', 'SharkController@callsmspostApi')->name('callsmspo
 
 Route::get('/flash-message', 'FlashMessageController@showMessage');
 
+Route::get('/slack-message', 'SharkController@slackNotificationMessage');
 
 
 

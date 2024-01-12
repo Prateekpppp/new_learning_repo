@@ -26,21 +26,7 @@ def besttimetobuystocks(prices : List[int]):
     return diff
     
 
-def duplicateinarr(nums):
-    i = 0
-    mv = 1
-    n = len(nums)
-    while(i < n-1):
-        print('nums[i]',nums[i],nums[mv])
-        if(nums[i] == nums[mv]):
-            return 'true'
-        elif(mv < n-1):
-            mv += 1
-        else:
-            i += 1
-            mv = i+1
-    return 'false'
 
 arr = [7,1,5,3,6,4]
 arr = [1,2,3,4]
-print(duplicateinarr(arr))
+print(besttimetobuystocks(arr))

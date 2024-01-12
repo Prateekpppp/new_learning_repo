@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Shark;
 use App\Models\SbFixture;
 use Response;
+use App\Notifications\SlackNotification;
+use Illuminate\Support\Facades\Notification;
+use GuzzleHttp\Client as GuzzleClient;
 
 class SharkController extends Controller
 {
@@ -349,4 +352,40 @@ class SharkController extends Controller
 
         return Response::download(public_path($file),$file,$headers);
     }
+
+    function slackNotificationMessage(){
+        // Notification::route('slack',env('SLACK_WEBHOOK_URL'))->notify(new SlackNotification());
+        // Notification::route('slack',env('SLACK_WEBHOOK_URL1'))->notify(new SlackNotification());
+        // return response()->json(['message'=>'Notification sent'], 200);
+
+        $url = 'https://slack.com/api/chat.postMessage';
+
+        // $url = 'https://slack.com/api/conversations.list';
+
+        // $url = 'https://slack.com/api/users.list';
+
+        $client = new GuzzleClient(
+            [
+                'headers' =>
+                    [
+                        'Authorization' => 'Bearer xoxp-6418765229157-6424147752548-6412905095223-84fcc490dbfe6a8897e6157babfe1b21',
+                        // 'AccessToken' => 'xoxb-6418765229157-6415131294150-HjAtTruwQW3WwEZ1x7PEdhVU',
+                        'Content-Type' => 'application/json',
+                        // 'Content-Type' => 'application/x-www-form-urlencoded',
+                    ]
+            ]);
+
+            $formData = [
+                'form_params' => [
+                    'channel' => 'D06CN39SRL4',
+                    'text' => 'Hii testing',
+                    'as_user' => true,
+                ]
+            ];
+
+            $response = $client->post($url, $formData)->getBody()->getContents();
+            $response = json_decode($response, true);
+            dd($response);
+    }
+
 }
