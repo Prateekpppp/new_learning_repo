@@ -140,6 +140,13 @@
         console.log(ar[2]);
     }
 
+    function convertNulltoempty(params) {
+        Object.keys(params).map(function (key, index) {
+                    if (params[key] == null) {
+                        params[key] = "--";
+                    }
+                });
+    }
 
 // js some pointa
 

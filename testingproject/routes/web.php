@@ -19,6 +19,8 @@ Route::get('fetchjson_n_reorder', 'SharkController@fetchjson_n_reorder');
 
 Route::get('downloadtablecsv', 'SharkController@downloadtablecsv');
 
+Route::get('mkTableBackup', 'SharkController@mkTableBackup');
+
 Route::get('callsmsApi',function(){
     return view('formsubmission');
 });

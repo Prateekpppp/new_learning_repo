@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Shark;
 use App\Models\SbFixture;
 use Response;
+use DB;
 use App\Notifications\SlackNotification;
 use Illuminate\Support\Facades\Notification;
 use GuzzleHttp\Client as GuzzleClient;
@@ -281,6 +282,16 @@ class SharkController extends Controller
 
     }
 
+    public function getTableColumns2($table)
+    {
+        // $columns = $model->getConnection()->getSchemaBuilder()->getColumnListing($tableName);
+
+        return \DB::getSchemaBuilder()->getColumnListing($table);
+
+        // return \Schema::getColumnListing($table);
+
+    }
+
     function crudonTable($model_name, $request) {
 
         if(gettype($request) == 'array') $request = json_decode(json_encode($request));
@@ -388,4 +399,199 @@ class SharkController extends Controller
             dd($response);
     }
 
+    public function shiftTableData2($main_table)
+    {
+        // dd($main_table);
+        $move_until_date = date('Y-m-d H:i:s');
+
+        $backup_table = 'backup_'.$main_table;
+
+        // $columns = json_encode($this->getTableColumns2($main_table));
+        $columns = $this->getTableColumns2($main_table);
+        // dd($columns);
+         // DB TRANSACTION STARTS HERE
+
+        //  $insql = DB::select("SELECT * FROM $main_table WHERE created_at < '$move_until_date'");
+        //  foreach ($insql as $key => $value) {
+        //      $value = json_decode(json_encode($value, true),true);
+        //     //  dd($value);
+        //     // $val = [];
+        //     $cnt = 0;
+        //     $insertableArray = [];
+        //     foreach ($value as $k => $v){
+        //         $insertableArray[$columns[$cnt]] = $v;
+        //         // echo '<br>'.$columns[$cnt];
+        //         $val[] = $v;
+        //         $cnt+=1;
+        //     }
+        //     // dd($val);
+        //     // $val = json_encode($val);
+        //     // DB::table($backup_table)->insert($val);
+        //     // $sql = "INSERT INTO $backup_table ($columns) VALUES ($val)";
+        //     // $result = DB::raw($sql);
+        //     DB::table($backup_table)->insert($insertableArray);
+
+        //  }
+
+        // create table new_table like old_table;
+
+        // $insql = DB::select("SELECT * FROM $main_table WHERE created_at < '$move_until_date'");
+        // $insql = json_encode($insql);
+        // dd('wedtghujio');
+
+         DB::beginTransaction();
+
+         try {
+
+            $sql = "CREATE TABLE IF NOT EXISTS $backup_table LIKE $main_table";
+
+            DB::select($sql);
+
+            DB::select("INSERT INTO $backup_table SELECT * FROM $main_table");
+
+            // DB::table($main_table)->where('created_at','<',$move_until_date)->delete();
+
+            DB::commit();
+
+            // $insql = DB::select("SELECT * FROM $main_table WHERE created_at < '$move_until_date'");
+            // foreach ($insql as $key => $value) {
+            //     $cnt = 0;
+            //     $insertableArray = [];
+            //     foreach ($value as $k => $v){
+            //         $insertableArray[$columns[$cnt]] = $v;
+            //         $cnt+=1;
+            //     }
+            //     DB::table($backup_table)->insert($insertableArray);
+
+            // }
+
+            // $insql = DB::select("SELECT * FROM $main_table WHERE created_at < '$move_until_date'");
+            // foreach ($insql as $key => $value) {
+            //     $value = json_encode($value);
+            //     $sql = "INSERT INTO $backup_table ($columns) VALUES ($value)";
+            //     $result = DB::insert($sql);
+            // }
+
+
+            // dd('werfghjk');
+            // COMMIT HERE IF NOT ERRORS
+
+        } catch (\Exception $e) {
+
+            // IF ANY ERROR COMPLETE ROLLBACK FOR PARTICULAR USER
+
+            DB::rollback();
+        }
+        // dd('23456');
+
+    }
+
+    public function shiftTableData($main_table)
+    {
+
+        // $move_until_date = date('Y-m-d H:i:s');
+        $move_until_date = date('2024-01-13 00:00:01');
+
+        $backup_table = 'backup_'.$main_table;
+
+        // $sql = "SELECT * FROM $main_table
+        // WHERE
+        // created_at < '2024-01-12 00:00:00' ORDER BY created_at DESC";
+
+        // dd(DB::select($sql));
+         // DB TRANSACTION STARTS HERE
+
+         DB::beginTransaction();
+
+         try {
+
+            $sql = "CREATE TABLE IF NOT EXISTS $backup_table LIKE $main_table";
+
+            DB::select($sql);
+
+             $sql = "INSERT INTO $backup_table
+                 (SELECT * FROM $main_table
+                 WHERE
+                 created_at < '$move_until_date')";
+
+             $result = DB::select($sql);
+
+             DB::table($main_table)->where('created_at','<',$move_until_date)->delete();
+
+             DB::commit();
+
+             // COMMIT HERE IF NOT ERRORS
+
+         } catch (\Exception $e) {
+            // dd($e);
+             // IF ANY ERROR COMPLETE ROLLBACK FOR PARTICULAR USER
+
+             DB::rollback();
+         }
+
+    }
+
+
+    public function mkTableBackup()
+    {
+        //
+        $tables = [
+            'sb_feed_messages',
+        ];
+
+        foreach ($tables as $main_table) {
+            self::shiftTableData($main_table);
+        }
+
+    }
+
+// multiple image upload in laravel
+    public function ticket(Request $request){
+        // dd($request->all());
+              $validation = Validator::make($request->all(), [
+                'select_file.*' => 'required|image|mimes:jpeg,png,pdf,jpg|max:2048',
+                'issue' => 'required',
+                'subject' => 'required',
+                'description' => 'required'
+              ]);
+
+              // $validate = $request->validate([
+              //     'select_file.*' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
+              //     // 'select_file' => 'required',
+              //     // 'select_file.*' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
+              //     'issue' => 'required',
+              //     'subject' => 'required',
+              //     'description' => 'required'
+              // ]);
+              //Default status to be set as 1
+              $status = '1';
+              $ticket = new Ticket;
+              if($validation->passes()) {
+                if ($request->hasFile('select_file')) {
+                  $file_urls = [];
+                  foreach ($request['select_file'] as $key => $file) {
+                    $imageName=time().$file->getClientOriginalName();
+                    echo 'sdfghjngfdsa -------- '.$imageName.'<br>';
+                    $filePath = 'tickets/' . $imageName;
+                    Storage::disk('local')->put($filePath, file_get_contents($file), 'public');
+                    dd(url(Storage::disk('local')->url($filePath)));
+                    $file_urls[] = Storage::disk('local')->url($filePath);
+                  //   Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
+                  //   $file_urls[] = Storage::disk('s3')->url($filePath);
+                  }
+                  $ticket->file = implode(',',$file_urls);
+                }
+                $ticket->status = $status;
+                $ticket->issue = $request->issue;
+                $ticket->subject = $request->subject;
+                $ticket->description = $request->description;
+                $ticket->user_id = Auth::user()->id;
+                $ticket->created_by = Auth::user()->id;
+                //dd($request->all());
+                $ticket->save();
+               return response()->json([
+              "message" => "Ticket created successfully"
+              ], 201);
+           }
+      }
 }
