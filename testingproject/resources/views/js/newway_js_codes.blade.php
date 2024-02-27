@@ -148,6 +148,10 @@
                 });
     }
 
+    function getCurrentUrl() {
+        return $(location).attr('href');
+    }
+
 // js some pointa
 
 // $.each( array, function( index, value ) )
@@ -162,5 +166,244 @@
 
 // The filter() method creates a new array filled with elements that pass a test provided by a function.
 // array.filter(function(currentValue, index, arr), thisValue)
+
+
+
+function validation(type = null) {
+
+    if (type != null) {
+        if (type == 'user_name') {
+            var userName = $('#userName').val();
+            $('.user_name_error').find('span').text('');
+            var userNameLengh = userName.length;
+            $('#userName').parent().parent().addClass('input-group--focused');
+            if (userNameLengh == 0) {
+                $('.user_name_error').show();
+                $('.user_name_error').find('span').text('*  Username required');
+    } else if (userNameLengh < 3) {
+                $('.user_name_error').show();
+                $('.user_name_error').find('span').text('* Username must be minimum of 3 characters');
+            } else if (userNameLengh > 30) {
+                $('.user_name_error').show();
+                $('.user_name_error').find('span').text('* Username must be less than 30 characters');
+            } else {
+                $('.user_name_error').hide();
+            }
+        }
+
+        if (type == 'email') {
+            var email = $('#email').val();
+            var emailLength = email.length;
+            if (emailLength == 0) {
+                $('.email_error').show();
+                $('.email_error').find('span').text('* Required');
+            } else {
+                // if (!validateEmail(email)) {
+                //     $('.email_error').show();
+                //     $('.email_error').find('span').text('* Invalid Email');
+                // } else {
+                    $('.email_error').hide();
+                // }
+            }
+        }
+
+
+        if (type == 'password') {
+            var password = $('#password').val();
+            var passwordLength = password.length;
+            if (passwordLength == 0) {
+                $('.password_error').show();
+                $('.password_error').find('span').text('* Required');
+            } else if (passwordLength < 5) {
+                $('.password_error').show();
+                $('.password_error').find('span').text('* Must be minimum of 5 characters');
+            } else if (passwordLength > 60) {
+                $('.password_error').show();
+                $('.password_error').find('span').text('* Must be less than 60 characters');
+            } else {
+                    $('.password_error').hide();
+            }
+        }
+
+        // if (type == 'confirm_password') {
+        //     var confirmPassword = $('#confirmPassword').val();
+        //     var confirmPasswordLength = confirmPassword.length;
+        //     if (confirmPasswordLength == 0) {
+        //         $('.confirm_password_error').show();
+        //         $('.confirm_password_error').find('span').text('* Required');
+        //     } else {
+        //         var password = $("#password").val();
+        //         var confirmPassword = $("#confirmPassword").val();
+        //         if (password != confirmPassword) {
+        //             $('.confirm_password_error').show();
+        //             $('.confirm_password_error').find('span').text('* Password mismatch');
+        //         } else {
+        //             $('.confirm_password_error').hide();
+        //         }
+        //     }
+        // }
+
+        // if (type == 'full_name') {
+        //     var fullName = $('#fullName').val();
+        //     var fullNameLength = fullName.length;
+        //     if (fullNameLength == 0) {
+        //         $('.full_name_error').show();
+        //         $('.full_name_error').find('span').text('* Required');
+        //     } else {
+        //         $('.full_name_error').hide();
+        //     }
+        // }
+
+        if (type == 'mobile_number') {
+            var mobileNumber = $('#mobileNumber').val();
+            var mobileNumberLength = mobileNumber.length;
+            if (mobileNumberLength == 0) {
+                $('.mobile_number_error').show();
+                $('.mobile_number_error').find('span').text('* Required');
+            }
+            else if (mobileNumberLength!=10) {
+            $('.mobile_number_error').show();
+            $('.mobile_number_error').find('span').text('Mobile number should be 10 digits');
+            }else {
+                $('.mobile_number_error').hide();
+            }
+        }
+
+    } else {
+
+        var userName = $('#userName').val();
+        var userNameLengh = userName.length;
+        if (userNameLengh == 0) {
+            $('.user_name_error').show();
+            $('.user_name_error').find('span').text('* Required');
+    } else if (userNameLengh < 3) {
+                $('.user_name_error').show();
+                $('.user_name_error').find('span').text('* Username must be minimum of 3 characters');
+            } else if (userNameLengh > 30) {
+                $('.user_name_error').show();
+                $('.user_name_error').find('span').text('* Username must be less than 30 characters');
+            } else {
+            $('.user_name_error').hide();
+        }
+
+
+
+
+        var first_pass = $('#password').val();
+
+        // var password = $('#password').val();
+
+        var passwordLength = first_pass.length;
+        if (passwordLength == 0) {
+            $('.password_error').show();
+            $('.password_error').find('span').text('* Required');
+        } else if (passwordLength < 5) {
+            $('.password_error').show();
+            $('.password_error').find('span').text('* Must be minimum of 5 characters');
+        } else if (passwordLength > 60) {
+            $('.password_error').show();
+            $('.password_error').find('span').text('* Must be less than 60 characters');
+        } else if(!first_pass.match(lowerCaseLetters)&&!first_pass.match(upperCaseLetters)) {
+            notify('Password must contain a letter','danger')
+            return false;
+        }  else   if(!first_pass.match(numbers)) {      // Validate numbers
+            notify('Password must contain a digit','danger')
+            return false;
+        }    else   if($('#userName').val()==first_pass) {
+            notify('Password cannot be same as username','danger')
+            return false;
+        }      else if($('#mobileNumber').val()==first_pass) {
+            notify('Password cannot be same as mobile number','danger')
+            return false;
+        }   else if($('#email').val().toLowerCase().indexOf(first_pass)>=0) {
+            notify('Password cannot be same as email','danger')
+            return false;
+        } else {
+            $('.password_error').hide();
+        }
+
+
+
+
+        var lowerCaseLetters = /[a-z]/g;
+        var upperCaseLetters = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+
+
+
+
+
+
+
+
+        var email = $('#email').val();
+        var emailLength = email.length;
+        if (emailLength == 0) {
+            $('.email_error').show();
+            $('.email_error').find('span').text('* Required');
+        } else {
+            // if (!validateEmail(email)) {
+            //     $('.email_error').show();
+            //     $('.email_error').find('span').text('* Invalid Email');
+            // } else {
+                $('.email_error').hide();
+            // }
+        }
+
+
+
+
+        var mobileNumber = $('#mobileNumber').val();
+        var mobileNumberLength = mobileNumber.length;
+        if (mobileNumberLength == 0) {
+            $('.mobile_number_error').show();
+            $('.mobile_number_error').find('span').text('* Required');
+        } else {
+            $('.mobile_number_error').hide();
+        }
+
+        // var first_pass = $('#password').val();
+
+        // var lowerCaseLetters = /[a-z]/g;
+        // var upperCaseLetters = /[A-Z]/g;
+        // if(!first_pass.match(lowerCaseLetters)&&!first_pass.match(upperCaseLetters)) {
+        // notify('Password must contain a letter','danger')
+        // return false;
+        // }
+    // Validate numbers
+    //   var numbers = /[0-9]/g;
+    //   if(!first_pass.match(numbers)) {
+    //     notify('Password must contain a digit','danger')
+    //     return false;
+    //   }
+    //   if($('#userName').val()==first_pass) {
+    //     notify('Password cannot be same as username','danger')
+    //     return false;
+    //   }
+    //   if($('#mobileNumber').val()==first_pass) {
+    //     notify('Password cannot be same as mobile number','danger')
+    //     return false;
+    //   }
+
+    //   if($('#email').val().toLowerCase().indexOf(first_pass)>=0) {
+    //     notify('Password cannot be same as email','danger')
+    //     return false;
+    //   }
+
+        var userNameValidationStatus = $('.user_name_error').is(":hidden");
+        var emailValidationStatus = $('.email_error').is(":hidden");
+        var passwordValidationStatus = $('.password_error').is(":hidden");
+        // var cPasswordValidationStatus = $('.confirm_password_error').is(":hidden");
+        // var fullNameValidationStatus = $('.full_name_error').is(":hidden");
+        var mobValidationStatus = $('.mobile_number_error').is(":hidden");
+
+        if (userNameValidationStatus && emailValidationStatus && passwordValidationStatus && mobValidationStatus) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
 
 </script>

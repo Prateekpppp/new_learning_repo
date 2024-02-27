@@ -37,6 +37,8 @@ Route::get('/flash-message', 'FlashMessageController@showMessage');
 
 Route::get('/slack-message', 'SharkController@slackNotificationMessage');
 
+Route::get('/deleteDublicateKeys/{filename}', 'SharkController@deleteDublicateKeys');
+
 
 
 

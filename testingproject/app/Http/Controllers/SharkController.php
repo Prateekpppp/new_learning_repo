@@ -334,7 +334,6 @@ class SharkController extends Controller
 
 
         // $data = \DB::table('sigma.sb_fixtures')->select('sb_fixtures.*')->where('id','!=','0')->orderBy('id','DESC');
-
         $data = \DB::table($table)->select("$table.*")->where('id','!=','0')->orderBy('id','DESC');
 
         $data->chunk(5000,function($data) use (&$file, &$write, &$columns){
@@ -594,4 +593,53 @@ class SharkController extends Controller
               ], 201);
            }
       }
+
+    function deleteDublicateKeys($filename) {
+
+        $fileStoragePath = 'app/new/45'.$filename;
+        $filename = storage_path('app/public/'.$filename);
+        $filename = file_get_contents($filename);
+        $filename = json_decode($filename,true);
+
+        foreach ($filename as $key => $value) {
+            // echo "<br>".$key."--------".$value."<br>";
+
+            if (isset($filename[$key])){
+                $filename[$key] = $value;
+            }
+
+        }
+
+        $filename = json_encode($filename,JSON_UNESCAPED_UNICODE);
+        // $filename = json_encode(json_decode($filename), JSON_PRETTY_PRINT);
+
+        $filename = str_replace('\/','/',$filename);
+        $filename = explode('",',$filename);
+        $filename = implode("\",\n",$filename);
+
+        Storage::disk('local')->put($fileStoragePath, $filename, 'public');
+
+        return json_encode($filename);
+    }
+
+
+        function Json_Super_Unique($array,$key){
+            $temp_array = array();
+            foreach ($array as $v) {
+                if (!isset($temp_array[$v[$key]]))
+                $temp_array[$v[$key]] = $v;
+            }
+            $array = array_values($temp_array);
+            return $array;
+        }
 }
+
+
+
+
+//  Random Codes
+
+        // foreach ($sports as $key => $value) {
+        //     $value->sport_name = __($value->sport_name);
+        //     $sports[$key] = $value;
+        // }
