@@ -404,6 +404,19 @@ function validation(type = null) {
         }
     }
 
+
+    function onScrollLoad(object) {
+
+        if(checkisInViewport($(`${object} .historyMainDiv`).last()) && loadingInProgressHistoryPage == false){
+            loadingInProgressHistoryPage = true;
+
+            getbetdetails('POST',"{{route('kfsb.bethistorydata')}}",dt,appenddata);
+
+        }
+    }
+
+
+
 }
 
 </script>
