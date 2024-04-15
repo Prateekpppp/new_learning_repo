@@ -39,6 +39,7 @@ Route::get('/slack-message', 'SharkController@slackNotificationMessage');
 
 Route::get('/deleteDublicateKeys/{filename}', 'SharkController@deleteDublicateKeys');
 
+Route::get('/read_csvintotable', 'SharkController@read_csvintotable');
 
 
 

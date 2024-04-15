@@ -80,4 +80,5 @@ def swaping(a,b):
 
 arr = [0,2]
 arr = [1,0,1,3,4,4,2,7,2]
+arr = [0, -1, -2, -4, 5, 0, -6]
 print(bubble_sort(arr))

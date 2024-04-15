@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Shark;
+use App\Models\Slot;
 use App\Models\SbFixture;
 use Response;
 use DB;
 use App\Notifications\SlackNotification;
 use Illuminate\Support\Facades\Notification;
 use GuzzleHttp\Client as GuzzleClient;
+use Auth;
 
 class SharkController extends Controller
 {
@@ -623,15 +625,80 @@ class SharkController extends Controller
     }
 
 
-        function Json_Super_Unique($array,$key){
-            $temp_array = array();
-            foreach ($array as $v) {
-                if (!isset($temp_array[$v[$key]]))
-                $temp_array[$v[$key]] = $v;
-            }
-            $array = array_values($temp_array);
-            return $array;
+    function Json_Super_Unique($array,$key){
+        $temp_array = array();
+        foreach ($array as $v) {
+            if (!isset($temp_array[$v[$key]]))
+            $temp_array[$v[$key]] = $v;
         }
+        $array = array_values($temp_array);
+        return $array;
+    }
+
+
+    function read_csvintotable() {
+
+        dd('Auth::user()');
+        $file = storage_path('app/public/image_csv.csv');
+
+        if(($file = fopen($file,"r")) !== FALSE) {
+            $html = '';
+            while(($data = fgetcsv($file,10000,';')) !== FALSE){
+                // dump($data);
+                $image_src = 'pgsoft/'.str_replace(" ","_",strtolower($data['0'])).'.png';
+                // dd($image_src);
+                $html .= $this->display_csvdata($data);
+
+                    Slot::insert([
+                        'name' => $data['0'],
+                        'provider' => 'pgsoft',
+                        'gameId' => $data['1'],
+                        'image' => $image_src,
+                        'is_listing' => '1'
+                    ]);
+
+
+                // }
+            }
+            fclose($file);
+            $thtml = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Document</title>
+                </head>
+                <body>
+                    `.$html.`
+                </body>
+                </html>
+            `;
+            echo '346789-0--------------------------------------<br>'.$thtml;
+
+            dd('done plz check');
+        }
+    }
+
+
+    function display_csvdata($data) {
+        $html = '';
+
+        $image_src = asset('pgsoft/'.str_replace(" ","_",strtolower($data['0'])).'.png');
+
+        $html = ' <div class="find-imf background_loader"  >
+                        <div class="inner__div" style="visibility:visible">
+                            <p class="err-img-label" style="display:none">'.$data['0'].'</p>
+                            <a href="javascript:void(0)" class="casinoLink" data-link="/pgsoft/launch?type=pgsoft&game_id='.$data['1'].'&provider=pgsoft" data-provider="pgsoft">
+                            <img src="'.$image_src.'" alt="Honey Trap of Diao Chan" onload="$(this).parents(".background_loader").find(".temp_loader__").remove();$(this).parents(".inner__div").css("visibility","visible")"
+                            onerror="this.onerror=null; this.src="/home2/test/dummy.jpg";$(this).parents(".find-imf").find(".err-img-label").show()">
+                            </a>
+                        </div>
+                    </div>';
+        // dump('2346-------------',$html);
+        return $html;
+
+    }
 }
 
 
