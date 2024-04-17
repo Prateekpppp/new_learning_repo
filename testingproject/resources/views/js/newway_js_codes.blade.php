@@ -419,4 +419,46 @@ function validation(type = null) {
 
 }
 
+
+function validateNumberLatest(that) {
+
+    var decimalIndex = $(that).val().indexOf('.');
+
+    if(that.value.length < 1){
+    parent.alert('{{__("Invalid amount")}}','Message','error')
+    $(that).val('').blur()
+    return true;
+    }
+
+    if (/^0+/.test(that.value)) {
+    parent.alert('{{__("Invalid amount")}}','Message','error')
+    $(that).val('').focus()
+    return true;
+    }
+
+    var deci = $(that).val().length - decimalIndex;
+
+    if(that.value>1000000){
+    parent.alert('{{__("Maximum allowed amount is ₹10,00,000.00")}}','Message','error')
+    $(that).val('').blur()
+
+    return true;
+    }
+    if((decimalIndex>0&& decimalIndex > that.maxLength)) {
+    that.value = that.value.slice(0, (that.maxLength+deci));
+    }
+    else if(decimalIndex<0&&that.value.length > that.maxLength) {
+    that.value = that.value.slice(0, (that.maxLength));
+    }
+
+    if (decimalIndex !== -1 && $(that).val().length - decimalIndex > 3) {
+    $(that).val($(that).val().slice(0, decimalIndex + 3));
+    }
+
+
+    if($(that).val() < 1 ){
+    parent.alert('{{__("Invalid amount")}}','Message','error')
+    $(that).val('').blur()
+    }
+}
 </script>

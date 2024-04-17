@@ -22,8 +22,8 @@ class SharkController extends Controller
     public function index()
     {
         //
-        $users = Shark::all();
-
+        // $users = Shark::all();
+        return '35467uyjhgfd';
         return view('sharks.index',compact('users'));
     }
 
