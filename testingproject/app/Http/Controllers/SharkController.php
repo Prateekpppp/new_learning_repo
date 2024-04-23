@@ -699,6 +699,10 @@ class SharkController extends Controller
         return $html;
 
     }
+
+    function getUrlAfterDomain(){
+        return $_SERVER['REQUEST_URI'];
+    }
 }
 
 

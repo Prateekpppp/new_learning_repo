@@ -461,4 +461,11 @@ function validateNumberLatest(that) {
     $(that).val('').blur()
     }
 }
+
+
+if(checkisInViewport($('.sb_check_scroll'))){
+    $('html, body').scrollTop($(".loader").offset().top);
+}
+
+
 </script>

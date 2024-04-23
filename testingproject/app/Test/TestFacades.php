@@ -1,7 +1,9 @@
 <?php
    namespace App\Test;
+
+
    class TestFacades{
-      public function testingFacades() {
+      public static function testingFacades() {
          echo "Testing the Facades in Laravel.";
       }
    }
