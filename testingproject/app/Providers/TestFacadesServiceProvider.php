@@ -13,11 +13,11 @@ class TestFacadesServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
-        // App::bind('test',function() {
-        //     return new \App\Test\TestFacades;
-        //  });
+        App::bind('test',function() {
+            return new \App\Test\TestFacades;
+         });
         //  App::bind('test');
-         App::bind('test','test');
+        //  App::bind('test','test');
     }
 
     /**

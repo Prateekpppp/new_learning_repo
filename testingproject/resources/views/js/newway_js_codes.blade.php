@@ -52,7 +52,8 @@
         var elementTop = $(that).offset().top;
         var elementBottom = elementTop + $(this).outerHeight();
         var viewportTop = $(window).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
+        // var viewportBottom = viewportTop + $(window).height();
+        var viewportBottom = viewportTop + window.innerHeight;
         return elementBottom > viewportTop && elementTop < viewportBottom;
     }
 
@@ -466,6 +467,33 @@ function validateNumberLatest(that) {
 if(checkisInViewport($('.sb_check_scroll'))){
     $('html, body').scrollTop($(".loader").offset().top);
 }
+
+
+$.fn.isOnScreen = function() {
+        var win = $(window);
+        var viewport = {
+              top: win.scrollTop(),
+              left: win.scrollLeft()
+        };
+        viewport.right = viewport.left + win.width();
+        viewport.bottom = viewport.top + win.height();
+        var bounds = this.offset();
+    if(bounds){
+        bounds.right = bounds.left + this.outerWidth();
+        bounds.bottom = bounds.top + this.outerHeight();
+        return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    }
+
+};
+
+
+$.fn.isInViewport = function() {
+  var elementTop = $(this).offset().top;
+  var elementBottom = elementTop + $(this).outerHeight();
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+  return elementBottom > viewportTop && elementTop < viewportBottom;
+};
 
 
 </script>
