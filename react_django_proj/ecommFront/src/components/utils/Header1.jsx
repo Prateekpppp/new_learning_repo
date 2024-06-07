@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 
-function Header(props) {
+function Header1(props) {
 
   const [count, setCount] = useState('test title');
 
@@ -18,7 +18,7 @@ function Header(props) {
 
   var navbar = [
     {
-    id :'1',url : '/',name : 'Home',
+      id :'1',url : '/',name : 'Home',
     },
     {
       id :'2',url :'todolist' ,name :  'TodoList',
@@ -30,7 +30,7 @@ function Header(props) {
       <div className="container">
         <div className="row">
           <div className="col-2">
-            <h1 className="">Header</h1>
+            <h1 className="">Header1</h1>
           </div>
           {/* <Router> */}
 
@@ -67,4 +67,4 @@ function Header(props) {
     )
 }
 
-export default Header
+export default Header1

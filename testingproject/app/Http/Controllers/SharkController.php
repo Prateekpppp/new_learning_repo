@@ -13,6 +13,8 @@ use App\Notifications\SlackNotification;
 use Illuminate\Support\Facades\Notification;
 use GuzzleHttp\Client as GuzzleClient;
 use Auth;
+use Workflow\WorkflowStub;
+use Workflow\Workflow;
 
 class SharkController extends Controller
 {
@@ -702,6 +704,48 @@ class SharkController extends Controller
 
     function getUrlAfterDomain(){
         return $_SERVER['REQUEST_URI'];
+    }
+
+    function workflow_sample(Request $request) {
+        // dump('123456');
+        // dump($request->all());
+        $req = $request->operation;
+        $file = 'workflowdata.json';
+
+        if($request->method() == "GET"){
+            // return false;
+            $file = 'workflowdata1.json';
+            // if()
+        } else {
+            if($req == 'exists') return true;
+
+            if($req == 'getlogenabledstate') return 'false';
+
+            if($req == 'getcustomactivities'){
+                $file = 'workflowdata2.json';
+            } elseif($req == 'getpluginsnames' || $req == 'getworkflowengineinfo'){
+                $file = 'workflowdata3.json';
+            } elseif($req == 'downloadscheme'){
+                // file_put_contents($file, $request->data);
+                // $data = Storage::disk('public')->put($file);
+                Storage::disk('public')->put('new_workflow.json', $request->data);
+                return $request->data;
+            } else{
+                return $request->data;
+            }
+        }
+
+
+        $data = Storage::disk('public')->get($file);
+        // $path = storage_path('app/public/').'workflowdata.json';
+
+        return $data;
+        // return json_encode($data);
+        // $workflow = WorkflowStub::make(MyWorkflow::class);
+        // $workflow->start('world');
+        // while ($workflow->running());
+        // $workflow->output();
+
     }
 }
 

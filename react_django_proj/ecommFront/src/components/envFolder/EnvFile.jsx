@@ -6,6 +6,12 @@ const EnvFile = {
 
     //  for Laravel
     // 'base_url':'http://localhost:9000/',
+
+    // Base directory for src
+    'baseDir':'../../',
+
+    // Base directory for assets
+    'baseAssetDir':'../../assets/',
 }
 
 export default EnvFile

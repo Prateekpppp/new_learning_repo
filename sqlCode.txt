@@ -1,0 +1,3 @@
+
+// sql code to count every perticular column name or to check dublication
+SELECT COUNT(id) FROM `cricaza_slots` GROUP BY gameId;

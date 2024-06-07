@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // use App\Test\TestFacades;
 
+// header('All')
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',function(){
     return TestFacades::testingFacades();
+});
+
+Route::get('workflow_w',function(){
+    // dd('213retgf');
+    return view('workflow.index');
 });
 
 Route::resource('user', 'SharkController');
@@ -46,6 +52,7 @@ Route::get('/deleteDublicateKeys/{filename}', 'SharkController@deleteDublicateKe
 
 Route::get('/read_csvintotable', 'SharkController@read_csvintotable');
 
+Route::post('workflow_sample', 'SharkController@workflow_sample')->name('user');
 
 
 
