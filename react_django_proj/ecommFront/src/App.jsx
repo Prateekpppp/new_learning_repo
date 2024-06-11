@@ -14,6 +14,7 @@ import Header from './components/utils/Header';
 import { ToastContainer } from "react-toastify";
 import Footer from './components/utils/Footer';
 import Product from './components/pages/Product';
+import Shoppingcart from './components/pages/Shoppingcart';
 
 
 function App() {
@@ -66,6 +67,9 @@ function App() {
             </Routes>
             <Routes>
               <Route path="/product/:name" element={<Product />} />
+            </Routes>
+            <Routes>
+              <Route path="/shoppingcart" element={<Shoppingcart />} />
             </Routes>
 
             <ToastContainer hideProgressBar={true} newestOnTop={true} />

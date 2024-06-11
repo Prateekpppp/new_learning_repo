@@ -8,9 +8,9 @@ const navValues = [
     {
     "id" :'3',"url" :'auth' ,"name" :'Auth',
     },
-    // {
-    // "id" :'4',"url" :'home' ,"name" :'Home',
-    // }
+    {
+    "id" :'4',"url" :'shoppingcart' ,"name" :'Shoppingcart',
+    }
 ]
 
 export default navValues;
