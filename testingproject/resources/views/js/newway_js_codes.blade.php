@@ -495,5 +495,281 @@ $.fn.isInViewport = function() {
   return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
+let searchGameTimeoutId;
+    function debounce(func, delay) {
+        return function(...args) {
+            clearTimeout(searchGameTimeoutId);
+            searchGameTimeoutId = setTimeout(() => func.apply(this, args), delay);
+        };
+    }
+
+
+</script>
+
+
+<script>
+
+
+    function appendOnclick(blogs,data) {
+        // blogs = blogs.blogs;
+        appendData(blogs,data);
+
+    }
+
+    var finance_insight_arr = @json($finance_category_names);
+
+    function appendData(blogs,data) {
+
+        response = blogs.blogs;
+        blogs = blogs.blogs.data;
+
+        if(response.current_page == response.last_page) $(`.loadmoreDiv[data-category="${data.category}"]`).parent().find('.wf_load_more').hide();
+
+        if((finance_insight_arr).includes(data.category)){
+            cat_name = 'finance_insight';
+        } else{
+            cat_name = data.category;
+            cat_name = cat_name.toLowerCase();
+            cat_name = cat_name.replace(/\s+/g,"_");
+        }
+        htmlFunction = 'category_'+cat_name;
+        var html = '';
+
+        $.each( blogs, function( index, blog ){
+            if (htmlFunction == 'category_whitepaper' && response.current_page == 1 && index == 0) {
+                $(`.whitepaper_fst_loadmoreDiv`).html(category_whitepaper_first_card(blog));
+            } else {
+                html+= eval(`${htmlFunction}(blog)`);
+            }
+        });
+
+        if(response.current_page != 1){
+
+            $(`.loadmoreDiv[data-category="${data.category}"]`).append(html);
+        } else{
+
+            $(`.loadmoreDiv[data-category="${data.category}"]`).html(html);
+        }
+
+    }
+
+    function category_featuring(blog) {
+
+        return `
+            <div class="swiper-slide card card1">
+                <div class="gradient_border">
+                    <div class="head_title">
+                        <div class="top">
+                            <span class="title">${blog.title}</span>
+                            <p class="para date">${blog.publish_at}</p>
+                        </div>
+                        <a class="nav_link_icon" href="{{url('blogs')}}/${blog.slug}">
+                            <img src="/assets/images/blogs/icons/green_arrow_up_right.svg"
+                            alt="link">
+                        </a>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <div class="loading-placeholder"><div class="skeleton-placeholder"></div></div>
+                    <img src="${blog.image}" alt="image">
+                </div>
+            </div>
+        `;
+    }
+    function category_recent_blogs(blog) {
+
+        return `
+            <div class="feature_card">
+                <div class="user_img">
+                    <div class="loading-placeholder"><div class="skeleton-placeholder"></div></div>
+                    <img class="feature_user" src="${blog.image}"
+                        alt="user">
+                </div>
+                <div class="feature_inner_text">
+                    <a href="{{url('blogs')}}/${blog.slug}">
+                        <h2 class="blog-title">${blog.title}</h2>
+                    </a>
+                    <h5>${blog.publish_at}</h5>
+                    <div class="feature_para">
+                        <p>${blog.short_description}</p>
+                        <a href="{{url('blogs')}}/${blog.slug}">
+                            <img class="feature_arrow"
+                                src="{{ asset('/assets/images/blogs/icons/feature_arrow.svg') }}"
+                                alt="link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+
+    function category_finance_insight(blog) {
+
+        return `
+            <div class="fi_card">
+                <div class="col img_container">
+                    <div class="loading-placeholder"><div class="skeleton-placeholder"></div></div>
+                    <img src="${blog.image}" alt="fiImage">
+                </div>
+                <div class="col text_container">
+                    <div class="text_div">
+                        <a href="{{url('blogs')}}/${blog.slug}" class="title blog-title click-blog-link">${blog.title}</a>
+                        <div class="text_bottom_container">
+                            <p class="fi_para">${blog.short_description}</p>
+
+                        </div>
+                    </div>
+                    <a class="col nav_link_con" href="{{url('blogs')}}/${blog.slug}">
+                        <img src="/assets/images/blogs/icons/green_arrow_up_right.svg"alt="link">
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
+    function category_whitepaper_first_card(blog) {
+
+        return `
+            <div class="card_img_sec">
+                <div class="loading-placeholder">
+                    <div class="skeleton-placeholder"></div>
+                </div>
+                <img src="${blog.image}" alt="trade">
+            </div>
+            <div class="white_paper_fst_txt_card">
+                <div class="card_txt_sec">
+                    <a href="{{url('blogs')}}/${blog.slug}">
+                        <h3 class="blog-title">${blog.title}</h3>
+                    </a>
+                    <p>${blog.short_description}</p>
+                </div>
+                <div class="icons_sec">
+                    <a href="{{url('blogs')}}/${blog.slug}" class="link_icon">
+                        <img src="{{ asset('/assets/images/blogs/icons/green_upArrow.svg') }}"
+                            alt="link">
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
+    function category_whitepaper(blog) {
+
+        return `
+            <div class="white_paper_card">
+                <div class="card_img_sec">
+                    <div class="loading-placeholder">
+                        <div class="skeleton-placeholder"></div>
+                    </div>
+                    <img src="${blog.image}" alt="cfo">
+                </div>
+                <div class="card_txt_sec">
+                    <a href="{{url('blogs')}}/${blog.slug}">
+                        <h3 id="wordCount" class="blog-title">${blog.title}</h3>
+                    </a>
+                    <p>${blog.short_description}</p>
+                    <div class="icons_sec">
+                        <a href="{{url('blogs')}}/${blog.slug}" class="link_icon">
+                            <img src="{{ asset('/assets/images/blogs/icons/green_upArrow.svg') }}"
+                                alt="link">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+
+    var data = {};
+
+    $(document).ready(function(){
+
+
+        data.data_order = 'desc';
+
+        // data.page = 1;
+
+        let cat_data;
+
+        var categories = @json($categoriesArr);
+
+        $.each(categories,function(i,v){
+
+            cat_name = (v.name).toLowerCase();
+            cat_name = cat_name.replace(/\s+/g,"_");
+
+            data[`${cat_name}`] = cat_data = {};
+
+            cat_data.data_order = 'desc';
+            cat_data.category = v.name;
+            cat_data.page = 1;
+            cat_data.limit = 3;
+
+            if(cat_data.category != '{{$categoriesArr[0]->name}}' && cat_data.category != '{{$categoriesArr[1]->name}}') {
+                cat_data.limit = 3;
+            }
+
+            if(cat_data.category == '{{$categoriesArr[1]->name}}') {
+                cat_data.limit = 4;
+            }
+
+            ajax_call('post',`getCategoryBlogs/${v.id}`,cat_data,appendData)
+        })
+
+
+
+        $('.wf_load_more').on('click',function () {
+
+            var url = `getCategoryBlogs/`+$(this).data('cat_id');
+
+            cat_name = ($(this).data('category')).toLowerCase();
+            cat_name = cat_name.replace(/\s+/g,"_");
+
+            cat_data = data[`${cat_name}`];
+
+            cat_data.category = $(this).data('category');
+            cat_data.category_id = $(this).data('cat_id');
+
+
+            cat_data.page += 1;
+
+            if(cat_data.category != '{{$categoriesArr[1]->name}}') {
+                cat_data.limit = 3;
+            }
+
+            if(cat_data.category == '{{$categoriesArr[1]->name}}') {
+                cat_data.limit = 4;
+            }
+
+
+            ajax_call('post',url,cat_data,appendOnclick)
+        });
+
+        $('.whitepaper_sort li').on('click',function () {
+
+
+            cat_name = ($(this).data('category')).toLowerCase();
+            cat_name = cat_name.replace(/\s+/g,"_");
+
+            cat_data = data[`${cat_name}`];
+
+            cat_data.category = $(this).data('category');
+            cat_data.category_id = $(this).data('cat_id');
+
+
+            cat_data.page = 1;
+            cat_data.wp_data_order = $(this).data('value');
+
+
+            cat_data.data_order = $(this).data('value');
+
+            ajax_call('post',`getCategoryBlogs/`+$(this).data('cat_id'),cat_data,appendData);
+            $(`.loadmoreDiv[data-category="${cat_data.category}"]`).parent().find('.wf_load_more').show();
+        })
+
+
+    });
+
 
 </script>

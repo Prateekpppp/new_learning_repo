@@ -747,6 +747,32 @@ class SharkController extends Controller
         // $workflow->output();
 
     }
+
+    public function imageUploadtoLocal($image,$location) {
+        $base64content = isset($image['base64']) ? $image['base64'] : null;
+        $file = isset($image['file']) ? $image['file'] : null;
+        $contents = '';
+        $s3url= '';
+
+        if (!empty($base64content)) {
+            $contents = base64_decode(explode(',',$base64content)[1] ?? null);
+            $text = explode('/', substr($base64content,0,strpos($base64content, ';')))[1] ?? null;
+            $fileName = rand().'_'.time().'.'.$text;
+        }else{
+            $fileName = rand().'_'.time().'.'.$file->getClientOriginalExtension();
+            $contents = file_get_contents($file);
+        }
+
+        if ($contents) {
+            $filePath = $location . $fileName;
+            $image_url=Storage::disk('publicAccess')->put($filePath, $contents,'public');
+            $s3url= Storage::disk('publicAccess')->url($filePath);
+            // dd($image_url,'-----------------90-098767890987890------------------',$s3url);
+        }
+
+        return $s3url;
+    }
+
 }
 
 

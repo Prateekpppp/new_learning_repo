@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Test\TestFacades;
+use App\Test\TestFacades;
 
 // header('All')
 /*
@@ -54,6 +54,17 @@ Route::get('/read_csvintotable', 'SharkController@read_csvintotable');
 
 Route::post('workflow_sample', 'SharkController@workflow_sample')->name('user');
 
+/**
+* @OA\Get(
+* path="read_csvintotable",
+* summary="Get a list of users",
+* tags={"Users"},
+* @OA\Response(
+* response=200,
+* description="List of users",
+* ),
+* )
+*/
 
 
 
