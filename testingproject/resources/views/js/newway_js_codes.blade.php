@@ -772,4 +772,137 @@ let searchGameTimeoutId;
     });
 
 
+    function searchOutputList(res,data) {
+
+
+        let container = $('.blog_search_others');
+        if (data.whitepaper_search == 1) {
+            container = $('.blog_search_whitepaper');
+        }
+
+        if((data.input).length < 1 || ($(`#${data.input_element_id}`).val()).length < 1){
+            container.find(".srch_result_container").removeClass("active");
+            container.find(".no_rsultfnud_container").removeClass("active");
+            container.find(".recnt_srch_main_container.header-recent-search").addClass("active");
+
+            return;
+        }
+
+
+        html = '';
+
+        $.each(res,function(index,blog){
+
+            html+=`
+
+                <a href="{{url('blog')}}/${blog.slug}" class="srch_result_wrap_inner_main">
+                    <img src="${blog.image}" alt="${blog.title}"
+                        class="srch_rsult_img">
+                    <p class="srch_rslt_txt">${blog.title}</p>
+                </a>
+
+            `;
+
+        });
+
+        $('.search_output_list').html(html);
+
+
+        if (res.length > 0) {
+            container.find(".srch_result_container").addClass("active");
+            container.find(".no_rsultfnud_container").removeClass("active");
+        } else {
+            container.find(".srch_result_container").removeClass("active");
+            container.find(".no_rsultfnud_container").addClass("active");
+        }
+
+        container.find(".recnt_srch_main_container.header-recent-search").removeClass("active");
+        container.find(".search_icon").hide();
+        container.find(".input_cls_wrap").css("display", "flex");
+
+        }
+
+        function shouldPreventSearch(data) {
+        return (data.input).length <= 0;
+    }
+
+
+    $(document).on('input', '#headerSearchInput,#whitepaperSearchInput', function(event){
+
+        clearTimeout(searchTimeoutId);
+
+        let container = $('.blog_search_others');
+
+        var data = {};
+
+        data.input = $(this).val().trim();
+        data.input_element_id = $(this).attr('id');
+        data.whitepaper_search = 0;
+
+
+        if($(this).attr('data-searchType') == '1') {
+            data.whitepaper_search = 1;
+            container = $('.blog_search_whitepaper');
+        }
+
+        // if (shouldPreventSearch(data)) {
+        //     container.find(".srch_result_container").removeClass("active");
+        //     container.find(".no_rsultfnud_container").removeClass("active");
+        //     container.find(".recnt_srch_main_container.header-recent-search").addClass("active");
+        //     return;
+        // }
+
+
+        $('.search_output_list').html('');
+
+
+        searchTimeoutId = setTimeout(() => {
+
+            ajax_call('post','search_blogs',data,searchOutputList);
+
+            if(shouldPreventSearch(data)){
+                return;
+            }
+
+            if(data.whitepaper_search == 1){
+
+                if(recent_search_whitepaper.includes(data.input)){
+                    return;
+                }
+
+                if(recent_search_whitepaper.length >4){
+                    // recent_search_whitepaper.shift();
+                    recent_search_whitepaper.pop();
+                }
+                // recent_search_whitepaper.push(data.input);
+                recent_search_whitepaper = [data.input].concat(recent_search_whitepaper);
+
+                localStorage.setItem('recent_search_whitepaper', JSON.stringify(recent_search_whitepaper));
+
+            } else{
+
+                if(recent_search_blog.includes(data.input)){
+                    return;
+                }
+
+                if(recent_search_blog.length >4){
+                    // recent_search_blog.shift();
+                    recent_search_blog.pop();
+                }
+                // recent_search_blog.push(data.input);
+                recent_search_blog = [data.input].concat(recent_search_blog);
+
+                localStorage.setItem('recent_search_blog', JSON.stringify(recent_search_blog));
+            }
+            createRecentList();
+        }, 500);
+
+
+
+        $('.close_btn_wrap').click(function(e){
+            clearTimeout(searchTimeoutId);
+        });
+
+    });
+
 </script>
