@@ -1,3 +1,4 @@
+from typing import List
 
 def sort(arr):
     temp = ''
@@ -87,7 +88,7 @@ def swaping(a,b):
     b = a - b
     a = a - b
     # print(a,b)
-    return a,b   
+    # return a,b   
 # Three-way partitioning method
 
 def n_sort(arr,n):
@@ -178,8 +179,46 @@ def duplicatesinarr(arr,n):
 
     return arr
 
+def quick_sort(arr,start,end):
 
-arr = [1,0,1,3,4,4,2,7,2]
-# arr = [1,0,1,1,0,1,2,1,2]
-arr = [4 ,3 ,12 ,3 ,12 ,3 ,4 ,4 ,12 ,7 ,11 ,6 ,5]
+    if(start<end):
+
+        p = partition(arr,start,end)
+        quick_sort(arr,start,p-1)
+        quick_sort(arr,p+1,end)
+    return arr
+
+def partition(arr: List[int],start,end) -> int:
+
+    pivot = arr[end]
+    i = start - 1 
+
+    for j in range(start,end):
+        if(arr[j]<pivot):
+            i += 1
+            # swaping(arr[j],arr[i])
+            if i != j:
+                (arr[i], arr[j]) = (arr[j], arr[i])
+
+    # swaping(arr[i+1],arr[end])
+    if i+1 != end:
+        (arr[i + 1], arr[end]) = (arr[end], arr[i + 1])
+    return i+1
+
+
+
+
+arr = [0,2,1,3]
+arr = [1,0,1,1,0,1,2,1,2]
+# arr = [4 ,3 ,12 ,3 ,12 ,3 ,4 ,4 ,12 ,7 ,11 ,6 ,5]
 # print(duplicatesinarr(arr,len(arr)))
+
+# data = [8, 7, 2, 1, 0, 9, 6]
+print("Unsorted Array")
+print(arr)
+
+
+quick_sort(arr, 0, len(arr) - 1)
+
+print('Sorted Array in Ascending Order:')
+print(arr)
