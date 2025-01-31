@@ -1,0 +1,1215 @@
+{
+    "uri": "model1.glb",
+    "mimeType": "model/gltf-binary",
+    "validatorVersion": "2.0.0-dev.3.8",
+    "validatedAt": "2022-12-21T11:36:12.621Z",
+    "issues": {
+        "numErrors": 0,
+        "numWarnings": 198,
+        "numInfos": 2,
+        "numHints": 0,
+        "messages": [
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/0/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/0/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/0/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/1/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/1/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/1/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/2/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/2/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/2/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/3/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/3/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/3/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/4/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/4/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/4/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/5/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/5/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/5/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/6/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/6/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/6/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/7/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/7/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/7/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/8/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/8/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/8/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/9/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/9/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/9/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/10/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/10/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/10/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/11/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/11/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/11/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/12/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/12/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/12/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/13/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/13/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/13/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/14/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/14/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/14/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/15/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/15/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/15/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/16/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/16/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/16/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/17/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/17/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/17/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/18/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/18/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/18/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/19/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/19/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/19/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/20/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/20/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/20/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/21/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/21/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/21/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/22/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/22/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/22/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/23/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/23/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/23/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/24/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/24/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/24/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/25/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/25/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/25/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/26/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/26/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/26/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/27/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/27/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/27/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/28/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/28/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/28/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/29/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/29/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/29/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/30/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/30/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/30/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/31/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/31/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/31/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/32/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/32/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/32/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/33/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/33/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/33/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/34/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/34/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/34/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/35/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/35/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/35/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/36/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/36/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/36/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/37/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/37/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/37/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/38/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/38/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/38/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/39/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/39/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/39/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/40/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/40/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/40/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/41/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/41/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/41/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/42/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/42/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/42/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/43/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/43/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/43/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/44/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/44/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/44/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/45/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/45/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/45/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/46/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/46/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/46/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/47/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/47/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/47/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/48/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/48/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/48/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/49/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/49/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/49/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/50/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/50/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/50/samplers/2/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/51/samplers/0/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/51/samplers/1/path"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/animations/51/samplers/2/path"
+            },
+            {
+                "code": "URI_GLB",
+                "message": "URI is used in GLB container.",
+                "severity": 2,
+                "pointer": "/images/0/uri"
+            },
+            {
+                "code": "URI_GLB",
+                "message": "URI is used in GLB container.",
+                "severity": 2,
+                "pointer": "/images/1/uri"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/1/skeletons"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/2/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/6/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/7/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/8/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/12/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/13/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/18/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/22/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/26/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/30/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/34/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/38/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/42/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/47/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/51/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/55/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/60/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/64/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/68/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/73/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/77/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/81/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/86/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/90/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/94/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/99/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/103/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/107/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/111/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/115/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/119/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/123/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/128/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/132/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/136/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/141/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/145/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/149/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/154/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/158/jointName"
+            },
+            {
+                "code": "UNEXPECTED_PROPERTY",
+                "message": "Unexpected property.",
+                "severity": 1,
+                "pointer": "/nodes/162/jointName"
+            }
+        ],
+        "truncated": true
+    }
+}

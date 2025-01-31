@@ -1,0 +1,322 @@
+@font-face {
+    font-family: metropolismedium;
+    src: url(../assets/fonts/Metropolis-Medium.otf);
+ }
+
+ @font-face {
+    font-family: metropolisbold;
+    src: url(../assets/fonts/Metropolis-Bold.otf);
+ }
+
+ @font-face {
+    font-family: montserratmedium;
+    src: url(../assets/fonts/Montserrat-Medium.otf);
+ }
+ 
+ @font-face {
+    font-family: montserratbold;
+    src: url(../assets/fonts/Montserrat-Bold.otf);
+ }
+
+* {
+    font-family: metropolismedium;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.bg-color {
+    background: #e4d3d340;
+    backdrop-filter: blur(10px);
+}
+
+.smfont {
+    font-size: .53rem;
+}
+
+.main-app {
+    height: 100vh;
+    /* background:  url('../assets/cars/car1.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat; */
+    overflow: auto;
+}
+
+.cb-slideshow,
+.cb-slideshow:after { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0; 
+    display: none;
+}
+
+.cb-slideshow li span { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 24s linear infinite 0s; 
+}
+
+.cb-slideshow li:nth-child(1) span { 
+    background-image: url(../assets/cars/car1.jpg) 
+}
+.cb-slideshow li:nth-child(2) span { 
+    background-image: url(../assets/cars/car2.jpg);
+    animation-delay: 6s; 
+}
+.cb-slideshow li:nth-child(3) span { 
+    background-image: url(../assets/cars/car3.jpg);
+    animation-delay: 12s; 
+}
+.cb-slideshow li:nth-child(4) span { 
+    background-image: url(../assets/cars/car4.jpg);
+    animation-delay: 18s; 
+}
+
+@keyframes imageAnimation { 
+    0% {
+	    opacity: 0;
+	    animation-timing-function: ease-in;
+	}
+	8% {
+	    opacity: 1;
+	    transform: scale(1.05);
+	    animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	    animation-timing-function: ease-out;
+	}
+	25% {
+	    opacity: 0;
+	    animation-timing-function: ease-in;
+	}
+	100% { opacity: 0 }
+}
+
+.div {
+    opacity: 0;
+    width: 100%;
+}
+.navbar-brand img {
+    height: 100px;
+}
+
+.navbar {
+    /* background: #e4d3d340; */
+}
+
+.navbar-toggler {
+    background-color: #ee353c;
+}
+
+.navbar-container {
+    /* background: #00000045; */
+    position: relative;
+    z-index: 5;
+}
+
+.navbar-fixed {
+    /* top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%; */
+    /* background: #00000045; */
+  }
+
+.navbar-fixed .navbar-brand img {
+    height: 50px;
+}
+
+.navbar .nav-item a {
+    position: relative;
+    color: #ee353c;
+}
+
+.navbar .nav-item a:hover {
+    color: #000;
+}
+
+.navbar .nav-item a::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    bottom: 3px;
+    left: 0;
+    background-color: #ee353c;
+    /* visibility: hidden; */
+    width: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbtn {
+    background: #ee353c;
+    padding: 0rem .5rem;
+    width: max-content;
+    transition: all 0.2s ease-in-out;
+}
+.navbtn2 {
+    background: #ee353c;
+    color: #fff;
+    padding: 0.5rem .5rem;
+    width: max-content;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbtn:hover {
+    padding: .1rem .8rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbtn a {
+    color: #fff;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+    color: #000;
+}
+
+.navbar .nav-item a:hover:before, .navbar .nav-item a.active:before, .navbar .nav-item a:focus:before {
+    /* visibility: visible; */
+    width: 100%;
+}
+
+.main-app .bg-color.rounded-3 {
+    left: 5%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+.car-box {
+    position: absolute;
+    left: 5%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.infobox {
+    position: relative;
+    z-index: 5;
+}
+
+.carimg {
+    position: absolute;
+    right: 0%;
+    top: 30%;
+    z-index: 2;
+    width: 67%;
+    /* height: 54%; */
+    /* background: url(../assets/cars/car4.png); */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(5px 5px 10px #000000a1);
+    filter: drop-shadow(10px 19px 30px #000000a1);
+    transition: all 0.2s ease-in-out;
+}
+.carimg::after {
+    filter: blur(20px);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-image: inherit; */
+    background: url(../assets/cars/car4.png);
+    background-size: inherit;
+    background-position: inherit;
+    background-repeat: no-repeat;
+    display: block;
+    /* bottom: -25px; */
+    top: 8%;
+    z-index: -1;
+}
+
+/* .main-app.position-relative::after {
+    position: absolute;
+    right: 0%;
+    top: 31%;
+    width: 55%;
+    height: 54%;
+    background: url(../assets/cars/car4.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    content: '';
+    filter: blur(20px);
+    transition: all 0.2s ease-in-out;
+} */
+
+.content1 {
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    /* background: url('/assets'); */
+}
+
+.dreamcarbtn {
+    width: max-content;
+    position: relative;
+}
+
+.dreamcarbtn::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ee353c;
+    /* visibility: hidden; */
+    width: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.dreamcarbtn:before {
+    /* visibility: visible; */
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+/* media queries */
+
+@media only screen and (max-width: 767px) {
+    .carimg {
+        top: 57%;
+        width: 100%;
+        /* height: 45%; */
+        transition: all 0.2s ease-in-out;
+    }
+    .carimg::after {
+        /* top: 6%; */
+        width: 100%;
+        /* height: 45%; */
+        transition: all 0.2s ease-in-out;
+    }
+    /* .main-app.position-relative::after {
+        top: 56%;
+        width: 100%;
+        height: 45%;
+        transition: all 0.2s ease-in-out;
+    } */
+}
+
+@media only screen and (max-width: 576px) {
+    .carimg {
+        top: 70%;
+    }
+}

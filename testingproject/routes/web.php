@@ -15,9 +15,23 @@ use App\Test\TestFacades;
 |
 */
 
+
+
+// Random Testing code start
+
+// Route::get('/',function(){
+//     return TestFacades::testingFacades();
+// });
+
+
 Route::get('/',function(){
-    return TestFacades::testingFacades();
+    // file_get_contents()
+    drfgyujhgf
 });
+
+// Random Testing code end
+
+
 
 Route::get('workflow_w',function(){
     // dd('213retgf');

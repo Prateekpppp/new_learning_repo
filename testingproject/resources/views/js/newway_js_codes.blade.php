@@ -905,4 +905,114 @@ let searchGameTimeoutId;
 
     });
 
+
+    // code to get the data from html using data atttribute or other things
+
+
+games_provided = ["Lucky 7","Lucky 5","Bet On Poker","Bet On Baccarat","Wheel Of Fortune","War Of Bets","Lucky 6","Dice Duel","6+ Poker","Classic Wheel","Football Grid","Instant Lucky 7","Skyward","Classic Roulette","Live Roulette","Lucky Kicks","Flash Roulette","T-Basket 24/7","T-Kick 24/7","Starzle","Crypt of Giza","Citrus Splash","Candy Coins","Lotus Wealth Wonders"]
+var all_games_provider_element = $('.card.pd6.casinoLink[data-provider=vivo]').find('.casino-game-name');
+
+
+$('.casino-game-name').each((x,y)=>{
+  console.log('x===',x)
+console.log('y===',$(y).html())
+})
+
+
+
+
+var all_games_provider = []
+$(all_games_provider_element).each((x,y)=>{
+  all_games_provider.push($(y).html().trim())
+
+})
+console.log('all_games_provider-----',all_games_provider)
+
+
+
+
+$(games_provider).each((x,y)=>{
+  console.log('x===',x)
+console.log('y===',y)
+})
+
+
+var missing_games_provider = []
+var present_games_provider = []
+$(games_provider).each((x,y)=>{
+  if(!all_games_provider.includes(y)){
+		missing_games_provider.push(y)
+} else {
+  present_games_provider.push(y)
+}
+})
+console.log('missing_games_provider-------',missing_games_provider)
+console.log('present_games_provider-------',present_games_provider)
+
+
+games_provided = ["Aviator","Dice","Goal","Plinko","Mines","Hi Lo","Keno","Mini Roulette","Hotline","Balloon","Keno 80","Starline","Trader","Crystall Fall","Neo Vegas","Gates of Egypt"];
+function casino_get_list_of_missing_present_games(game_provider,games_provided){
+  var games_provider_element = $(`.card.pd6.casinoLink[data-provider=${game_provider}]`).find('.casino-game-name');
+
+  var provider_all_games = []
+  $(games_provider_element).each((x,y)=>{
+    provider_all_games.push($(y).html().trim())
+  });
+
+  var missing_games_provider = []
+  var present_games_provider = []
+  $(games_provider).each((x,y)=>{
+    if(!all_games_provider.includes(y)){
+      missing_games_provider.push(y)
+    } else {
+      present_games_provider.push(y)
+    }
+  })
+  console.log('missing_games_provider-------',missing_games_provider)
+  console.log('present_games_provider-------',present_games_provider)
+
+}
+
+games_provided = ["Aviator","Dice","Goal","Plinko","Mines","Hi Lo","Keno","Mini Roulette","Hotline","Balloon","Keno 80","Starline","Trader","Crystall Fall","Neo Vegas","Gates of Egypt"];
+
+function slots_get_list_of_missing_present_games(game_provider,games_provided){
+
+  var games_provider_elements = [];
+  $('.card.pd6.casinoLink').each((i,item)=>{
+    if(($(item).data('link').split("&")[0]).split("=")[1] == game_provider){
+      games_provider_elements.push($(item).find('.casino-game-name').html().trim())
+    }
+
+  })
+
+  var provider_all_games = []
+  $(games_provider_element).each((x,y)=>{
+    provider_all_games.push($(y).html().trim())
+  });
+
+  var missing_games_provider = []
+  var present_games_provider = []
+  $(games_provider).each((x,y)=>{
+    if(!games_provider_elements.includes(y)){
+      missing_games_provider.push(y)
+    } else {
+      present_games_provider.push(y)
+    }
+  })
+  console.log('missing_games_provider-------',missing_games_provider)
+  console.log('present_games_provider-------',present_games_provider)
+
+}
+
+function get_array_of_provider_games(provider){
+	provider_games = [];
+  $('.card.pd6.casinoLink').each((i,e)=>{
+  if(($(e).data('link').split('&')[0]).split('=')[1] == provider)
+    {
+			provider_games.push($(e).find('.casino-game-name').html().trim())
+    }
+  })
+return provider_games;
+}
+
 </script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first D3.js app</title>
+		<!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style>
+			body { margin: 0; }
+			svg {
+				/* background: #2B65EC; */
+			}
+			#countryid {
+				left: 5%;
+				top: 5%;
+				z-index: 2;
+			}
+			/* #mapContainer {
+			max-width: 1000px;
+				margin:2%;
+				padding:20px;
+				border:2px solid #000;
+				border-radius: 5px;
+			} */
+		</style>
+	</head>
+	<body>
+		<div class="position-relative">
+			<div class="position-absolute">
+				<select name="country" id="countryid">
+					<option value="USA">USA</option>
+					<option value="India">India</option>
+					<option value="Russia">Russia</option>
+				</select>
+			</div>
+		</div>
+		<!-- <div id="mapContainer">
+			<svg width=100% height=100% stroke-linejoin="round" stroke-linecap="round">
+			 <defs>
+			   <filter id="blur">
+			   <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+			   </filter>
+			 </defs>
+		   </svg>
+		 </div> -->
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+        <!-- <script type="text/javascript" src="js/three.min.js"></script> -->
+        <!-- <script type="text/javascript" src="js/d3.v7.min.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.7.0/d3.min.js"></script> -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+        <!-- <script type="text/javascript" src="js/d3-1.js"></script> -->
+		<script src="https://github.com/mkiitkgp/India-map-D3/blob/master/js/d3.geo.min.js"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<!-- <script src="https://d3js.org/topojson.v2.min.js"></script> -->
+        <script type="text/javascript" src="js/d3-2.js"></script>
+	</body>
+</html>
