@@ -78,7 +78,73 @@ def swaping(a,b):
     return a,b   
     
 
-arr = [0,2]
-arr = [1,0,1,3,4,4,2,7,2]
-arr = [0, -1, -2, -4, 5, 0, -6]
-print(bubble_sort(arr))
+
+
+# ##################################################
+
+# Bubble Sort
+# Insertion Sort
+# Merge Sort
+# Quicksort
+
+
+def bubbleSorting(arr):
+    mv = arrL = len(arr)
+    i = 0
+    while(i < mv-1):
+
+        if(arr[i] > arr[i+1]):
+            arr[i],arr[i+1] = arr[i+1],arr[i]
+
+        if(i == mv-2):
+            mv -= 1
+            i = 0
+        else:
+            i+=1
+    return arr
+
+
+
+def insertionSort(arr):
+    
+    arrL = len(arr)
+    j = 1
+    i = 0
+    k = arr[1]
+
+    while(j <= arrL-1):
+        if(k < arr[i]):
+            arr[i+1],arr[i] = arr[i],arr[i+1]
+            k = arr[i]
+        
+        if(i == 0):
+            j += 1
+            i = j-1
+            if(j != arrL):
+                k = arr[j]
+        else:
+            i -= 1
+        
+        
+    return arr
+
+
+
+# Divide and Conquer Strategy
+
+def mergeSort(arr):
+    
+
+
+
+
+
+
+
+
+
+
+arr = [2,7,3,9,8,1,6,10,67,56,23,45,87,12]
+
+print(insertionSort(arr))
+        

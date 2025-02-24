@@ -1,0 +1,14 @@
+- Sorting
+    -- merge sort
+    -- quick sort
+
+  -- no-decreasing array
+  -- equilibrium index of array for multiply
+  -- Find Excel column name from a given column number
+  -- Find Excel column number from a given column name
+  -- Given a string, find the next smallest palindrome
+  -- Maximum Subarray Sum
+
+- Searching
+
+    --

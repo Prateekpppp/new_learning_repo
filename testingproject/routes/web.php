@@ -25,8 +25,9 @@ use App\Test\TestFacades;
 
 
 Route::get('/',function(){
+    return view('workflow.index');
     // file_get_contents()
-    drfgyujhgf
+    // drfgyujhgf
 });
 
 // Random Testing code end

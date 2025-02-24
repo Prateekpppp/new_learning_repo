@@ -1,0 +1,25 @@
+
+# Count Odd and Even using recursion
+  
+odd = 0
+even = 0
+i = 0
+
+def numCount(arr,odd,even,i):
+    
+    arrLen = len(arr)
+
+    if(i<arrLen):
+
+        if(arr[i]%2==0):
+            even += 1
+        else:
+            odd += 1
+
+        i+=1
+        return numCount(arr,odd,even,i)
+
+    return (odd,even)
+
+
+print(numCount([2, 3, 4, 5, 6,8],odd,even,i))

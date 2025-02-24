@@ -1,3 +1,4 @@
+from typing import List
 
 def sort(arr):
     temp = ''
@@ -87,12 +88,11 @@ def swaping(a,b):
     b = a - b
     a = a - b
     # print(a,b)
-    return a,b   
+    # return a,b   
 # Three-way partitioning method
 
-def n_sort(arr):
+def n_sort(arr,n):
     
-    n = len(arr)
     low = movp = 0
     high = n -1
     while(movp <= high):
@@ -179,8 +179,80 @@ def duplicatesinarr(arr,n):
 
     return arr
 
+def quick_sort(arr,start,end):
 
-arr = [1,0,1,3,4,4,2,7,2]
-# arr = [1,0,1,1,0,1,2,1,2]
-arr = [4 ,3 ,12 ,3 ,12 ,3 ,4 ,4 ,12 ,7 ,11 ,6 ,5]
-print(n_sort(arr))
+    if(start<end):
+
+        p = partition(arr,start,end)
+        quick_sort(arr,start,p-1)
+        quick_sort(arr,p+1,end)
+    return arr
+
+def partition(arr: List[int],start,end) -> int:
+
+    pivot = arr[end]
+    i = start - 1 
+
+    for j in range(start,end):
+        if(arr[j]<pivot):
+            i += 1
+            # swaping(arr[j],arr[i])
+            if i != j:
+                (arr[i], arr[j]) = (arr[j], arr[i])
+
+    # swaping(arr[i+1],arr[end])
+    if i+1 != end:
+        (arr[i + 1], arr[end]) = (arr[end], arr[i + 1])
+    return i+1
+
+
+
+
+arr = [0,2,1,3]
+arr = [0, 1, 0, 1, 0, 0, 1, 1, 1, 0]
+# arr = [4 ,3 ,12 ,3 ,12 ,3 ,4 ,4 ,12 ,7 ,11 ,6 ,5]
+# print(duplicatesinarr(arr,len(arr)))
+
+
+print(quick_sort(arr, 0, len(arr) - 1))
+
+
+
+# get the length of an integer
+
+def intLength(num):
+    i = 0
+    while(num%10!=0):
+
+        num = int(num/10)
+
+        i += 1
+
+    return i
+
+
+#  Reverse a number
+
+def reverseInt(num):
+    reverse = 0
+
+    while(num%10 != 0):
+        reverse = reverse*10 + num%10
+        num = int(num/10)
+
+    return reverse
+
+
+
+# program to find square root of a given number
+
+# def squareRoot(num):
+
+#     start = 1
+#     mid = int(num/2)
+
+#     if(mid*mid == num):
+#         return mid
+    
+#     elif(mid*mid > num):
+        
