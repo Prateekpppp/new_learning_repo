@@ -1,5 +1,5 @@
 
-let stringFunctions = {
+let stringProblems = {
     // Reverse String Word Wise
     'reverseWords' : 
         function(txt){
@@ -57,7 +57,6 @@ let stringFunctions = {
         let opCnt = 0;
 
         while(i < txt.length){
-            console.log('~txt[i]',~txt[i]);
             if((i+1)%2==0){
                 
                 if(txt[i] === fstVar){
@@ -80,4 +79,4 @@ let stringFunctions = {
 }
 
 
-console.log(stringFunctions.beautifulString('1000'));
+console.log(stringProblems.beautifulString('1000'));
