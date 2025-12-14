@@ -59,8 +59,16 @@
     padding: 6px;
     border-radius: 50px;
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .food-item-counter img{
     width: 30px;
+}
+
+.food-item-counter p{
+    margin: 0 !important;
 }
